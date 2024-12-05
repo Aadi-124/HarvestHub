@@ -12,6 +12,17 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import SideBar from './Sidebar';
+
+import Drawer from '@mui/material/Drawer';
+import List from '@mui/material/List';
+import Divider from '@mui/material/Divider';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+import MailIcon from '@mui/icons-material/Mail';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -35,8 +46,98 @@ function ResponsiveAppBar() {
     setAnchorElUser(null);
   };
 
+
+  const [open, setOpen] = React.useState(false);
+
+  const toggleDrawer = (newOpen) => () => {
+    setOpen(newOpen);
+  };
+
+
+
+  const handelSidebarButtons = (index,text) => ()=>{
+    console.log(text);
+    switch (index) {
+      case 0:
+          console.log("Index 0 Clicked!");
+        break;
+      case 1:
+          console.log("Index 1 Clicked!");
+        break;
+      case 2:
+          console.log("Index 2 Clicked!");
+        break;
+      case 3:
+          console.log("Index 3 Clicked!");
+        break;
+    
+      default:
+        console.log("Higher Index clicked!");
+        break;
+        
+    }
+  }
+
+  
+  const DrawerList = (
+    <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
+      <List>
+        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          <ListItem key={text} disablePadding>
+            <ListItemButton onClick={handelSidebarButtons(index,text)}>
+              <ListItemIcon>
+                {index === 0 ? <InboxIcon /> :""}
+                {index === 1 ? <MailIcon /> :""}
+                {index === 2 ? <InboxIcon /> :""}
+                {index === 3 ? <MailIcon /> :""}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
+      <List>
+        {['All mail', 'Trash', 'Spam'].map((text, index) => (
+          <ListItem key={text} disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                {index === 0 ? <InboxIcon /> :""}
+                {index === 1 ? <MailIcon /> :""}
+                {index === 2 ? <InboxIcon /> :""}
+                {index === 3 ? <MailIcon /> :""}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
+
+
+
+
+
+
+
+
+
+
+
   return (
-    <AppBar position="static">
+
+    <>
+    
+    <div>
+      <Button onClick={toggleDrawer(true)}>Open drawer</Button>
+      <Drawer open={open} onClose={toggleDrawer(false)}>
+        {DrawerList}
+      </Drawer>
+    </div>
+
+    <AppBar position="static" style={{"background-color":"white","color":"#95dc2a"}}>
+     
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -133,13 +234,13 @@ function ResponsiveAppBar() {
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
+                  vertical: 'top',
+                  horizontal: 'right',
               }}
               keepMounted
               transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
+                  vertical: 'top',
+                  horizontal: 'right',
               }}
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
@@ -154,6 +255,7 @@ function ResponsiveAppBar() {
         </Toolbar>
       </Container>
     </AppBar>
+    </>
   );
 }
 export default ResponsiveAppBar;
