@@ -12,8 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import SideBar from './Sidebar';
-
+import GrassIcon from '@mui/icons-material/Grass';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
@@ -23,14 +22,23 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import img from '../assets/ProfilePic4.png'
+import { useNavigate } from 'react-router-dom';
+
+
+
+
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-function ResponsiveAppBar() {
+function Navbar() {
+  
+    const navigate = useNavigate();
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-
+  
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -115,7 +123,7 @@ function ResponsiveAppBar() {
     </Box>
   );
 
-
+  
 
 
 
@@ -130,18 +138,19 @@ function ResponsiveAppBar() {
     <>
     
     <div>
-      <Button onClick={toggleDrawer(true)}>Open drawer</Button>
+      {/* <Button onClick={toggleDrawer(true)}>Open drawer</Button> */}
       <Drawer open={open} onClose={toggleDrawer(false)}>
         {DrawerList}
       </Drawer>
     </div>
 
-    <AppBar position="static" style={{"background-color":"white","color":"#95dc2a"}}>
+    <AppBar position="static" style={{"backgroundColor":"white","color":"#95dc2a"}}>
      
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <GrassIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
+            onClick={()=>{navigate("/")}}
             variant="h6"
             noWrap
             component="a"
@@ -156,7 +165,7 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            HarvestHub
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -165,36 +174,16 @@ function ResponsiveAppBar() {
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
-              onClick={handleOpenNavMenu}
+              onClick={toggleDrawer(true)}
               color="inherit"
             >
               <MenuIcon />
             </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{ display: { xs: 'block', md: 'none' } }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
+           
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <GrassIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
+            onClick={()=>{navigate("/")}}
             variant="h5"
             noWrap
             component="a"
@@ -210,23 +199,25 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            HarvestHub
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: 'black', display: 'block' }}
               >
                 {page}
               </Button>
             ))}
           </Box>
+          <Button variant="text" sx={{fontSize:"15px"}} onClick={()=>{navigate("/login")}}>Login</Button>
+          <Button variant="text" sx={{fontSize:"15px"}} onClick={()=>{navigate("/register")}}>SignUp</Button>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+               {false &&  <Avatar alt="Remy Sharp" src={img}/>}
               </IconButton>
             </Tooltip>
             <Menu
@@ -258,4 +249,4 @@ function ResponsiveAppBar() {
     </>
   );
 }
-export default ResponsiveAppBar;
+export default Navbar;
