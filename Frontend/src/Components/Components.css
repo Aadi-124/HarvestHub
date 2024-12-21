@@ -56,30 +56,33 @@ body{
 /* Register Page */
 
 .register{
-    /* height: 1cm; */
+    height: fit-content;
     width: 4cm;
     display:flex;
     align-items: center;
-    border:2px solid orange;
+    /* border:2px solid orange; */
 
 }
 
 #profile_pic_div{
-    border:3px solid green;
-    width: 3cm;
+    width:  3cm;
     height: 3cm;
-    border-radius: 50%;
+    border-radius: 100%;
+    background-color: rgb(215, 217, 219);
+    cursor: pointer;
 }
 
 
+
 .register_container{
-    border:2px solid red;
+    margin-top: 100px;
+    margin-bottom: 100px;
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
     align-items: center;
     width: 98vw;
-    height: 80vh;
+    height:fit-content;
 }
 
 .register_sub_container{
@@ -98,10 +101,5 @@ body{
     flex-direction: column;
     margin: 5px;
 }
-
-.inputs{
-    margin:20px;
-}
-
 
 

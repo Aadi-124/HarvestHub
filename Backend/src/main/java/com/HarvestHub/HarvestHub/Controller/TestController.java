@@ -6,9 +6,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestController {
     
-    @GetMapping("/")
+    @GetMapping("/test")
     public String Test(){
-        return "Hello World";
+        System.out.println("Request is made from frontend!");
+        return "API Accessed Successfully!";
     }
 
 
