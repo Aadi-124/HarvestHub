@@ -21,6 +21,11 @@ export default function Register() {
     } = useForm();
 
     const onSubmit = (data) => {
+        apiTesting().then((res)=>{
+            console.log(res.data);
+        }).catch((err)=>{   
+            console.log(err);
+        })
         console.log(data);
     }
 
@@ -34,6 +39,9 @@ export default function Register() {
         console.log("Image Upload");
     }
 
+    const test = () =>{
+        
+    }
   
   
 
