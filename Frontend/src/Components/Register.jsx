@@ -21,11 +21,11 @@ export default function Register() {
     } = useForm();
 
     const onSubmit = (data) => {
-        apiTesting().then((res)=>{
-            console.log(res.data);
-        }).catch((err)=>{   
-            console.log(err);
-        })
+        // apiTesting().then((res)=>{
+        //     console.log(res.data);
+        // }).catch((err)=>{   
+        //     console.log(err);
+        // })
         console.log(data);
     }
 
@@ -59,7 +59,7 @@ export default function Register() {
 
                             <div className='register_sub_inner_container'>
 
-                                <TextField style={{ margin: "10px" }} id="input1" className="inputs"  {...register("fullname")} label="Full Name" variant="outlined" />
+                                <TextField style={{ margin: "10px" }} id="input1" className="inputs"  {...register("fullname",{required:true})} label="Full Name" variant="outlined" />
                                 <TextField style={{ margin: "10px" }} id="input2" className="inputs"  {...register("username")} label="User Name" variant="outlined" />
                                 <TextField style={{ margin: "10px" }} id="input3" className="inputs" {...register("email")} label="Email" type='email' variant="outlined" />
                                 <TextField style={{ margin: "10px" }} id="input4" className="inputs" {...register("age")} label="Age" type='number' variant="outlined" />
