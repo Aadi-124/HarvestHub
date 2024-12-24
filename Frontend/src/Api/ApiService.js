@@ -7,3 +7,5 @@ const api = axios.create({
 
 export const apiTesting = () => api.get('/test');
 
+export const latestOffer = () => api.get('/products/get_latest_offer_product');
+

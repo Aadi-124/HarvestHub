@@ -6,7 +6,6 @@ import Home from './Components/Home';
 import Footer from './Components/Footer';
 import Login from './Components/Login';
 import Register from './Components/Register';
-
 function App() {
   
   const isFarmerLoggedin = true;
@@ -22,6 +21,7 @@ function App() {
         <Route path='/login' element={<Login/>} />
         <Route path='/register' element={<Register/>} />
       </Routes>
+       
     
         <Footer/>
 
