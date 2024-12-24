@@ -103,3 +103,37 @@ body{
 }
 
 
+/*====================================================================================================================*/
+/*Card :-*/
+
+
+
+
+.product-image {
+    width: 100%;
+    height: 180px;;
+    margin-bottom: 12px;
+  }
+  
+  .discount-badge {
+    font-size: 30px;
+    font-weight: bolder;
+    color: #463a75;
+    width: fit-content;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    border: 4px solid rgb(114, 115, 116);
+    border-radius: 10%;
+    width: 180px;
+    align-items: center;
+    font-weight: bolder;
+  }
+  .product-title {
+    font-size: 24px;
+    font-weight: bolder;
+    color: #0f0e0f;
+    margin: 8px 0;
+  }
