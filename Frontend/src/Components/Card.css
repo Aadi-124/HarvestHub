@@ -1,0 +1,153 @@
+/*#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  #Header{
+    width: 100%;
+    height: 80px;
+    margin:auto;
+  }
+  
+  .logo {
+    height: 6em;
+    padding: 1.5em;
+    will-change: filter;
+    transition: filter 300ms;
+  }
+  .logo:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+  }
+  .logo.react:hover {
+    filter: drop-shadow(0 0 2em #61dafbaa);
+  }
+  
+  @keyframes logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    a:nth-of-type(2) .logo {
+      animation: logo-spin infinite 20s linear;
+    }
+  }
+  
+  .card {
+    padding: 2em;
+  }
+  
+  .read-the-docs {
+    color: #888;
+  }
+  */
+  .card {
+    display: flex;
+    justify-content: space-around; /* Ensures even spacing between cards */
+    align-items: stretch; /* Makes all cards the same height */
+    gap: 20px; /* Adds spacing between cards */
+    margin: 20px; /* Adds margin around the container */
+  }
+  
+  @media (max-width: 768px) {
+    .card {
+      flex-wrap: wrap; /* Allows cards to wrap on smaller screens */
+      justify-content: center;
+    }
+  
+    .card > div {
+      width: 45%; /* Adjust card width for smaller devices */
+      margin: 10px 0;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .card > div {
+      width: 100%; /* Full-width cards on very small devices */
+    }
+  }
+  
+
+
+  .card > div {
+    display: flex;
+    flex-direction:column; /* Ensures vertical alignment of content */
+    justify-content: space-between; /* Distributes space evenly */
+    align-items: center;
+    height: 100%; /* Makes sure all cards take full height */
+    text-align: center;
+    padding: 16px;
+    border: 1px solid #313030; /* Optional: border for better visualization */
+    border-radius: 8px;
+    background-color: #fff;
+    box-sizing: border-box; /* Ensures padding doesn't affect dimensions */
+  }
+  
+  
+  .discount-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: purple;
+    color: white;
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 4px;
+  }
+  
+  .product-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 12px;
+  }
+  
+  .product-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin: 8px 0;
+  }
+  
+  .product-weight {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 12px;
+  }
+  
+  .price-container {
+    margin-bottom: 16px;
+  }
+  
+  .current-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-right: 8px;
+  }
+  
+  .original-price {
+    font-size: 14px;
+    color: #aaa;
+    text-decoration: line-through;
+  }
+  
+  .add-to-cart-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    color: white;
+    background-color: #ff3366;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .add-to-cart-btn:hover {
+    background-color: #e62e5c;
+  }
+  
