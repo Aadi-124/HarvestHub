@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/HarvestHub.iml" filepath="$PROJECT_DIR$/.idea/HarvestHub.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Backend/HarvestHub.iml" filepath="$PROJECT_DIR$/Backend/HarvestHub.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/project_persional.iml" filepath="$PROJECT_DIR$/.idea/project_persional.iml" />
     </modules>
   </component>
 </project>
